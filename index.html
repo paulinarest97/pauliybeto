@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es" data-theme="light" style="color-scheme:light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paulina & Alberto · 6 de junio de 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"En Clair";src:url(fuentes/EnClair-Regular.ttf) format("truetype");size-adjust:85%;font-display:block}
+:root{
+  --fondo:#F6F5F1; --papel:#FBFAF7; --tinta:#383734; --suave:#77746C; --linea:#DDD9D0;
+  --boton:#383734; --boton-txt:#F6F5F1; --tbd:#ECE6D6; --acento:#8A7662;
+  --script:"En Clair","Pinyon Script","Snell Roundhand","Apple Chancery",cursive;
+  --serif:"Cormorant Upright",Garamond,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--serif);font-weight:500;font-size:1.25rem;line-height:1.6}
+html[data-lang="es"] [lang="en"], html[data-lang="en"] [lang="es"]{display:none}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--tinta);outline-offset:3px}
+.tbd{background:var(--tbd);padding:0 .25em;border-radius:2px}
+
+/* encabezado */
+header.top{text-align:center;padding:1.4rem 1rem 0}
+header.top .mono{font-family:var(--script);color:var(--acento);font-style:normal;font-size:clamp(2rem,5vw,2.6rem);line-height:1.2;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--fondo)}
+nav .in{display:flex;justify-content:center;align-items:center;gap:1.4rem;padding:.8rem 1rem;overflow-x:auto;scrollbar-width:none;max-width:100%}
+nav .in::-webkit-scrollbar{display:none}
+nav a{font-family:var(--serif);font-weight:500;text-decoration:none;white-space:nowrap;font-size:1.2rem;padding-bottom:3px;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{border-bottom-color:var(--tinta)}
+.idioma{font:inherit;font-size:1.05rem;background:none;border:1px solid var(--linea);color:var(--suave);border-radius:999px;padding:.15rem .7rem;cursor:pointer;white-space:nowrap}
+@media (max-width:820px){nav .in{justify-content:flex-start}}
+
+/* carrusel */
+.carrusel{position:relative;overflow:hidden;margin-top:.4rem}
+.pista{display:flex;width:max-content;animation:desliza var(--dur,80s) linear infinite}
+@keyframes desliza{to{transform:translateX(-50%)}}
+.pista img{height:clamp(300px,64vh,580px);width:auto;max-width:none;flex:0 0 auto;object-fit:cover}
+.pista img.recorte{aspect-ratio:5/4}
+.flechas{position:absolute;inset:auto 1rem 1rem auto;display:flex;gap:.5rem}
+.flechas button{width:40px;height:40px;border-radius:50%;border:0;background:rgba(246,245,241,.85);color:#383734;font-size:1.2rem;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.pista{animation:none}}
+
+/* nombres */
+.nombres{text-align:center;padding:clamp(3.5rem,9vw,6rem) 1.25rem 2rem;max-width:980px;margin:0 auto}
+.nombres h1{font-family:var(--script);color:var(--acento);font-weight:400;font-style:normal;font-size:clamp(2.6rem,7.5vw,4.4rem);line-height:1.25;margin:0}
+.nombres .amp{display:block;font-family:var(--serif);font-size:2rem;line-height:1;margin:.6rem 0}
+@media (min-width:700px){.nombres .amp{transform:translateX(-7%)}}
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:clamp(3rem,8vw,5rem)}
+.datos .g{font-family:var(--script);color:var(--acento);font-style:normal;font-size:clamp(1.9rem,4.5vw,2.5rem);line-height:1.2;display:block}
+.datos .p{font-family:var(--serif);font-weight:500;font-size:1.2rem}
+.foto-ancha{max-width:980px;margin:0 auto;padding:0 1.25rem}
+.foto-ancha img{width:100%;height:auto}
+
+/* secciones */
+section{max-width:760px;margin:0 auto;padding:clamp(3.5rem,8vw,5.5rem) 1.25rem;text-align:center}
+section.ancha{max-width:1080px}
+h2{font-family:var(--script);color:var(--acento);font-weight:400;font-style:normal;font-size:clamp(2.6rem,7vw,3.6rem);line-height:1.2;margin:0 0 1.5rem}
+h3{font-family:var(--script);color:var(--acento);font-weight:400;font-style:normal;font-size:1.9rem;line-height:1.25;margin:0 0 .4rem}
+p{margin:0 auto 1rem;max-width:58ch}
+.sep{width:60px;height:1px;background:var(--linea);margin:0 auto;border:0}
+.nota p{font-size:1.5rem}
+
+/* programa */
+.programa{list-style:none;padding:0;margin:0 auto;max-width:420px}
+.programa li{padding:1.1rem 0;border-bottom:1px solid var(--linea)}
+.programa li:last-child{border-bottom:0}
+.dc{display:block;font-family:var(--script);color:var(--acento);font-style:normal;font-weight:400;font-size:1.55rem;line-height:1.3;margin-top:.6rem}
+.fecha-dia{display:block;font-size:1.65rem;font-weight:600;color:var(--tinta);margin-bottom:.3rem}
+.dia-bloque p{font-size:1.4rem}
+.dia-bloque .programa .e{font-size:1.5rem}
+.dia-bloque .programa .h{font-size:1.15rem}
+.dia-bloque+.dia-bloque{border-top:1px solid var(--linea);margin-top:3rem;padding-top:3rem}
+.programa .h{display:block;font-size:.95rem;color:var(--suave)}
+.programa .e{font-size:1.35rem}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:2.5rem;text-align:center;margin-top:1rem}
+.cols p{font-size:1.2rem}
+.lugares{margin-top:2.5rem}
+.lista-lugares{list-style:none;padding:0;margin:.3rem auto 1rem;font-size:1.25rem;line-height:1.8;columns:3 200px;column-gap:2rem;max-width:760px}
+.lista-lugares li{break-inside:avoid}
+.nota-lugar{color:var(--suave);font-size:.85em}
+.lista-lugares li.destacado{column-span:all;white-space:nowrap;margin-bottom:.2rem}
+@media (max-width:420px){.lista-lugares li.destacado{white-space:normal}}
+.lugar-bloque+.lugar-bloque{border-top:1px solid var(--linea);margin-top:2.5rem;padding-top:2.5rem}
+.enlace{text-decoration:underline;text-decoration-color:var(--linea);text-underline-offset:4px;text-decoration-thickness:1px}
+.enlace:hover{text-decoration-color:var(--tinta)}
+.contacto{display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem .6rem}
+.punto{color:var(--suave)}
+
+.btn{display:inline-block;font:inherit;font-size:1.15rem;text-decoration:none;background:var(--boton);color:var(--boton-txt);border:0;padding:.7rem 1.6rem;border-radius:2px;cursor:pointer;letter-spacing:.02em}
+.btn.sec{background:transparent;color:var(--tinta);border:1px solid var(--tinta)}
+
+/* regalos */
+.regalos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),280px));justify-content:center;gap:1.5rem;margin-top:2rem}
+.regalo{background:var(--papel);border:1px solid var(--linea);padding:1rem 1rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.foto-regalo{width:100%;aspect-ratio:1/1;object-fit:contain;padding:6%;margin-bottom:1rem;background:#fff}
+.regalo .cupo{margin:-.6rem 0 .8rem;font-size:1.05rem}
+.regalo .precio{color:var(--suave);margin-bottom:.8rem}
+.regalo .btn{margin-top:auto}
+
+/* galería */
+.galeria{columns:3 260px;column-gap:12px;margin-top:1.5rem}
+.galeria img{width:100%;height:auto;margin:0 0 12px;break-inside:avoid}
+
+/* rsvp */
+form{display:grid;gap:1.1rem;text-align:left;max-width:460px;margin:2rem auto 0}
+label{display:grid;gap:.3rem;font-size:1.15rem}
+input,select,textarea{font:inherit;font-size:1.15rem;color:var(--tinta);background:var(--papel);border:1px solid var(--linea);border-radius:2px;padding:.65rem .8rem;width:100%}
+textarea{min-height:5rem;resize:vertical}
+fieldset{border:0;padding:0;margin:0}
+legend{font-size:1.15rem;margin-bottom:.4rem}
+.opciones{display:flex;gap:1.5rem;flex-wrap:wrap}
+.opciones label{display:flex;align-items:center;gap:.45rem}
+.opciones input{width:auto;accent-color:var(--tinta)}
+form .btn{justify-self:center;margin-top:.5rem;background:#4A3426;color:#F6F5F1}
+form .btn:hover{background:#5E4433}
+.error{color:#A0463A;font-size:.95rem;min-height:1.2em;margin:0;text-align:center}
+
+/* faq */
+.faq{text-align:left;max-width:620px;margin:0 auto}
+details{border-top:1px solid var(--linea);padding:1rem 0}
+details:last-child{border-bottom:1px solid var(--linea)}
+summary{cursor:pointer;font-size:1.35rem;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--suave)}
+details[open] summary::after{content:"–"}
+details p{margin:.5rem 0 0;color:var(--suave);max-width:none}
+
+[data-page]:not(.activa){display:none}
+main{min-height:calc(100vh - 150px)}
+footer{text-align:center;padding:2rem 1rem 4rem;color:var(--suave)}
+footer .mono{font-family:var(--script);color:var(--acento);font-style:normal;font-size:2.4rem;display:block;line-height:1.3}
+@media (max-width:560px){.datos{grid-template-columns:1fr;gap:1.5rem}}
+@media (max-width:600px){
+  .galeria{columns:2;column-gap:8px}
+  .galeria img{margin-bottom:8px}
+  .regalos{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+  .regalo{padding:.6rem .6rem 1rem;gap:.2rem}
+  .regalo h3{font-size:1.35rem;line-height:1.2}
+  .regalo .precio{font-size:1rem;margin-bottom:.5rem}
+  .regalo .cupo{font-size:.9rem;margin:-.4rem 0 .6rem}
+  .regalo .btn{font-size:.95rem;padding:.55rem .8rem}
+}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+dialog#dlg-regalo{border:1px solid var(--linea);background:var(--papel);color:var(--tinta);max-width:440px;width:calc(100% - 2rem);padding:2rem 1.5rem 1.4rem;border-radius:4px}
+dialog#dlg-regalo::backdrop{background:rgba(56,55,52,.45)}
+dialog#dlg-regalo form{margin:0}
+dialog#dlg-regalo h3{text-align:center;margin:0}
+.dlg-valor{text-align:center;color:var(--suave);margin:0}
+.dlg-intro{text-align:center;margin:.4rem 0 .2rem}
+.cerrar{font:inherit;background:none;border:0;color:var(--suave);cursor:pointer;justify-self:center;text-decoration:underline;text-underline-offset:3px}
+.gracias{text-align:center;font-size:1.3rem;padding:1rem 0}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <p class="mono">Paulina &amp; Alberto</p>
+</header>
+<nav aria-label="Secciones">
+  <div class="in">
+    <a href="#inicio" class="on"><span lang="es">Inicio</span><span lang="en">Home</span></a>
+    <a href="#programa"><span lang="es">Programa</span><span lang="en">Schedule</span></a>
+    <a href="#hospedaje"><span lang="es">Dónde quedarse</span><span lang="en">Where to stay</span></a>
+    <a href="#maquillaje">Hair &amp; Makeup</a>
+    <a href="#dress-code">Dress Code</a>
+    <a href="#regalos"><span lang="es">Lista de regalos</span><span lang="en">Registry</span></a>
+    <a href="#que-hacer"><span lang="es">Qué hacer</span><span lang="en">Things to do</span></a>
+    <a href="#galeria"><span lang="es">Galería</span><span lang="en">Gallery</span></a>
+    <a href="#rsvp">RSVP</a>
+    <button class="idioma" id="idioma" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+  </div>
+</nav>
+
+<main>
+<div data-page id="inicio">
+<div class="carrusel" aria-roledescription="carrusel">
+  <div class="pista" id="pista">
+    <img class="recorte" style="object-position:48% 50%" src="img/01-7476032979.jpg" alt="Paulina y Alberto mirando el anillo en una banca">
+    <img src="img/02-1063e53f1a.jpg" alt="Paulina y Alberto en un jardín">
+    <img class="recorte" style="object-position:35% 50%" src="img/03-9b47589a7d.jpg" alt="Paulina y Alberto sentados de espaldas en el campo">
+    <img class="recorte" style="object-position:45% 50%" src="img/04-86930bb0b6.jpg" alt="Paulina y Alberto bailando">
+  </div>
+</div>
+
+<div class="nombres">
+  <h1>Paulina Restrepo V<span class="amp">&amp;</span>Alberto Cuellar C</h1>
+  <div class="datos">
+    <div><span class="g">Roca y Casona</span><span class="p">Llanogrande, Antioquia</span></div>
+    <div><span class="g"><span lang="es">6 de junio</span><span lang="en">June 6</span></span><span class="p">2027</span></div>
+  </div>
+</div>
+
+<div class="foto-ancha"><img src="img/05-938d350950.jpg" alt="Paulina y Alberto leyendo en una banca bajo un árbol"></div>
+
+<section class="nota">
+  <p lang="es">Nos encantaría celebrar el comienzo de esta nueva etapa rodeados de las personas que más queremos y que han hecho parte de nuestra historia. Tenerte ahí celebrando este día tan especial con nosotros nos haría inmensamente felices.</p>
+  <p lang="en">We would love to celebrate the start of this new chapter surrounded by the people we love most and who have been part of our story. Having you there to celebrate this special day with us would make us immensely happy.</p>
+</section>
+</div>
+
+
+<section data-page id="programa">
+  <h2><span lang="es">Programa</span><span lang="en">Schedule</span></h2>
+  <div class="dia-bloque">
+  <span class="fecha-dia"><span lang="es">06 de junio</span><span lang="en">June 6</span></span>
+  <h3>Roca y Casona</h3>
+  <p>Llanogrande, Antioquia</p>
+  <p style="margin:1.5rem auto 2.5rem"><a class="btn sec" href="https://www.google.com/maps/search/?api=1&query=Hacienda+Roca+y+Casona+Llanogrande" target="_blank" rel="noopener"><span lang="es">Ver en Google Maps</span><span lang="en">Open in Google Maps</span></a></p>
+  <ul class="programa">
+    <li><span class="h tbd">4:00 p. m.</span><span class="e"><span lang="es">Ceremonia</span><span lang="en">Ceremony</span></span></li>
+  </ul>
+  <p style="margin-top:.4rem"><span lang="es">Seguido de cóctel y recepción</span><span lang="en">Cocktail and reception to follow</span></p>
+  </div>
+</section>
+
+<section data-page id="hospedaje" class="ancha">
+  <h2><span lang="es">Dónde quedarse</span><span lang="en">Where to stay</span></h2>
+  <p lang="es">Estas son algunas opciones cerca de la hacienda para que puedas descansar después de la fiesta.</p>
+  <p lang="en">Here are a few options near the venue so you can rest after the party.</p>
+  <div style="margin:2.5rem 0">
+    <h3><span lang="es">En avión</span><span lang="en">By plane</span></h3>
+    <p lang="es">Te recomendamos volar al aeropuerto José María Córdova en Rionegro, el más cercano a los lugares donde celebraremos el fin de semana.</p>
+    <p lang="en">We recommend flying into José María Córdova Airport in Rionegro, the closest to where we'll be celebrating all weekend.</p>
+  </div>
+  <div class="cols">
+    <div><h3 class="tbd"><span lang="es">Hotel 1</span><span lang="en">Hotel 1</span></h3><p class="tbd"><span lang="es">Distancia a la hacienda y tarifa o código especial</span><span lang="en">Distance to the venue and special rate or code</span></p></div>
+    <div><h3 class="tbd"><span lang="es">Hotel 2</span><span lang="en">Hotel 2</span></h3><p class="tbd"><span lang="es">Distancia a la hacienda y tarifa o código especial</span><span lang="en">Distance to the venue and special rate or code</span></p></div>
+    <div><h3 class="tbd"><span lang="es">Hotel 3</span><span lang="en">Hotel 3</span></h3><p class="tbd"><span lang="es">Distancia a la hacienda y tarifa o código especial</span><span lang="en">Distance to the venue and special rate or code</span></p></div>
+  </div>
+</section>
+
+<section data-page id="maquillaje" class="ancha">
+  <h2>Hair &amp; Makeup</h2>
+  <div class="cols">
+    <div><h3>Meli Morales</h3><p class="contacto"><a class="enlace" href="https://api.whatsapp.com/send?phone=573145067937&amp;text=Hola%20%F0%9F%8C%B8%20voy%20a%20asistir%20al%20matrimonio%20de%20Paulina%20y%20Alberto%20el%2006%20de%20junio%20de%202027%20en%20Llanogrande%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20acerca%20de%20tus%20servicios%20%F0%9F%A4%8D%E2%9C%A8" target="_blank" rel="noopener">WhatsApp</a><span class="punto">·</span><a class="enlace" href="https://www.instagram.com/makeupbymelimorales/" target="_blank" rel="noopener">@makeupbymelimorales</a></p></div>
+    <div><h3>Valentina Zuluaga</h3><p class="contacto"><a class="enlace" href="https://api.whatsapp.com/send?phone=573218574350&amp;text=Hola%20%F0%9F%8C%B8%20voy%20a%20asistir%20al%20matrimonio%20de%20Paulina%20y%20Alberto%20el%2006%20de%20junio%20de%202027%20en%20Llanogrande%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20acerca%20de%20tus%20servicios%20%F0%9F%A4%8D%E2%9C%A8" target="_blank" rel="noopener">WhatsApp</a><span class="punto">·</span><a class="enlace" href="https://www.instagram.com/valenzmakeup/" target="_blank" rel="noopener">@valenzmakeup</a></p></div>
+    <div><h3>Martina Dieck</h3><p class="contacto"><a class="enlace" href="https://api.whatsapp.com/send?phone=573218513824&amp;text=Hola%20%F0%9F%8C%B8%20voy%20a%20asistir%20al%20matrimonio%20de%20Paulina%20y%20Alberto%20el%2006%20de%20junio%20de%202027%20en%20Llanogrande%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20acerca%20de%20tus%20servicios%20%F0%9F%A4%8D%E2%9C%A8" target="_blank" rel="noopener">WhatsApp</a><span class="punto">·</span><a class="enlace" href="https://www.instagram.com/martinadieckmakeup/" target="_blank" rel="noopener">@martinadieckmakeup</a></p></div>
+    <div><h3>Cami Gaviria</h3><p class="contacto"><a class="enlace" href="https://api.whatsapp.com/send?phone=573116176617&amp;text=Hola%20%F0%9F%8C%B8%20voy%20a%20asistir%20al%20matrimonio%20de%20Paulina%20y%20Alberto%20el%2006%20de%20junio%20de%202027%20en%20Llanogrande%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20acerca%20de%20tus%20servicios%20%F0%9F%A4%8D%E2%9C%A8" target="_blank" rel="noopener">WhatsApp</a><span class="punto">·</span><a class="enlace" href="https://www.instagram.com/cami.make.up/" target="_blank" rel="noopener">@cami.make.up</a></p></div>
+    <div><h3>Juliana López</h3><p class="contacto"><a class="enlace" href="https://api.whatsapp.com/send?phone=573122571628&amp;text=Hola%20%F0%9F%8C%B8%20voy%20a%20asistir%20al%20matrimonio%20de%20Paulina%20y%20Alberto%20el%2006%20de%20junio%20de%202027%20en%20Llanogrande%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20acerca%20de%20tus%20servicios%20%F0%9F%A4%8D%E2%9C%A8" target="_blank" rel="noopener">WhatsApp</a><span class="punto">·</span><a class="enlace" href="https://www.instagram.com/julianalopez.makeup/" target="_blank" rel="noopener">@julianalopez.makeup</a></p></div>
+    <div><h3>Alejandra Uribe</h3><p class="contacto"><a class="enlace" href="https://api.whatsapp.com/send?phone=573015869665&amp;text=Hola%20%F0%9F%8C%B8%20voy%20a%20asistir%20al%20matrimonio%20de%20Paulina%20y%20Alberto%20el%2006%20de%20junio%20de%202027%20en%20Llanogrande%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20acerca%20de%20tus%20servicios%20%F0%9F%A4%8D%E2%9C%A8" target="_blank" rel="noopener">WhatsApp</a><span class="punto">·</span><a class="enlace" href="https://www.instagram.com/alejauribemakeup/" target="_blank" rel="noopener">@alejauribemakeup</a></p></div>
+  </div>
+</section>
+
+<section data-page id="dress-code">
+  <h2>Dress Code</h2>
+  <div class="dia-bloque">
+    <span class="fecha-dia"><span lang="es">05 de junio · Cóctel de bienvenida</span><span lang="en">June 5 · Welcome cocktail</span></span>
+    <h3 class="tbd"><span lang="es">Por definir</span><span lang="en">To be confirmed</span></h3>
+  </div>
+  <div class="dia-bloque">
+    <span class="fecha-dia"><span lang="es">06 de junio · Matrimonio</span><span lang="en">June 6 · Wedding</span></span>
+    <h3>Formal</h3>
+    <p><span lang="es"><span class="dc">Mujeres</span>Vestido largo sin estampados<br>Se reservan el blanco y el azul</span><span lang="en"><span class="dc">Women</span>Floor-length dress, no prints<br>White and blue are reserved</span></p>
+    <p><span lang="es"><span class="dc">Hombres</span>Traje y corbata</span><span lang="en"><span class="dc">Men</span>Suit and tie</span></p>
+  </div>
+  <p style="margin-top:3rem" lang="es">Las noches en Llanogrande son frías, así que te recomendamos llevar un abrigo o chal.</p>
+  <p style="margin-top:3rem" lang="en">Nights in Llanogrande are cold, so we recommend bringing a jacket or wrap.</p>
+</section>
+
+<section data-page id="regalos" class="ancha">
+  <h2><span lang="es">Lista de regalos</span><span lang="en">Registry</span></h2>
+  <div class="regalos">
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/06-463d6ddee3.svg" alt="Ilustración de una pared con varios cuadros"><h3><span lang="es">Fondo de Arte</span><span lang="en">Art Fund</span></h3><span class="precio"><span lang="es">$500.000 por cupo</span><span lang="en">$500,000 per share</span></span><span class="cupo"><span lang="es">Cupos ilimitados</span><span lang="en">Unlimited shares</span></span><a class="btn" href="https://checkout.wompi.co/l/1tnRi6" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/07-4095874b7f.jpg" alt="Mesa auxiliar Moscú"><h3><span lang="es">Mesa Auxiliar Moscú</span><span lang="en">Moscow Side Table</span></h3><span class="precio">$1.900.000</span><span class="cupo"><span lang="es">Cupos de $380.000</span><span lang="en">Shares of $380,000</span></span><a class="btn" href="https://checkout.wompi.co/l/IWVBv0" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/08-c3de632af1.jpg" alt="Poltrona Teresa"><h3><span lang="es">Poltrona Teresa</span><span lang="en">Teresa Armchair</span></h3><span class="precio">$2.200.000</span><span class="cupo"><span lang="es">Cupos de $550.000</span><span lang="en">Shares of $550,000</span></span><a class="btn" href="https://checkout.wompi.co/l/EmtPC0" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/09-fe770677a7.jpg" alt="Cafetera Ninja Luxe Café"><h3>Ninja Luxe Café</h3><span class="precio">$1.400.000</span><span class="cupo"><span lang="es">Cupos de $350.000</span><span lang="en">Shares of $350,000</span></span><a class="btn" href="https://checkout.wompi.co/l/1OSJ97" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/10-385817af6f.jpg" alt="Batidora KitchenAid"><h3><span lang="es">Batidora KitchenAid</span><span lang="en">KitchenAid Stand Mixer</span></h3><span class="precio">$1.099.000</span><a class="btn" href="https://checkout.wompi.co/l/XDZdBR" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/11-886b8a3d0c.jpg" alt="Airfryer Ninja Doublestack"><h3><span lang="es">Airfryer Doublestack</span><span lang="en">Doublestack Air Fryer</span></h3><span class="precio">$750.000</span><a class="btn" href="https://checkout.wompi.co/l/UOze1E" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/12-5881b58d94.jpg" alt="Lámpara de mesa Cornelia"><h3><span lang="es">Lámpara de Mesa Cornelia</span><span lang="en">Cornelia Table Lamp</span></h3><span class="precio">$800.000</span><a class="btn" href="https://checkout.wompi.co/l/GwUlcq" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/13-ec18133ad5.jpg" alt="Sofá Lala"><h3><span lang="es">Sofá Lala</span><span lang="en">Lala Sofa</span></h3><span class="precio">$7.000.000</span><span class="cupo"><span lang="es">Cupos de $700.000</span><span lang="en">Shares of $700,000</span></span><a class="btn" href="https://checkout.wompi.co/l/nQa2dC" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/14-ad3c7a72a8.jpg" alt="Cubiertos Malmaison"><h3><span lang="es">Cubiertos Malmaison</span><span lang="en">Malmaison Flatware</span></h3><span class="precio">$5.000.000</span><span class="cupo"><span lang="es">Cupos de $500.000</span><span lang="en">Shares of $500,000</span></span><a class="btn" href="https://checkout.wompi.co/l/N1rfgU" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/15-c8beff60bf.jpg" alt="Bandeja grabada Christofle con los nombres Paulina y Alberto"><h3><span lang="es">Bandeja Grabada Christofle</span><span lang="en">Christofle Engraved Tray</span></h3><span class="precio">$2.400.000</span><span class="cupo"><span lang="es">Cupos de $600.000</span><span lang="en">Shares of $600,000</span></span><a class="btn" href="https://checkout.wompi.co/l/lf18z5" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/16-98550b0575.jpg" alt="Salsera Albi"><h3><span lang="es">Salsera Albi</span><span lang="en">Albi Gravy Boat</span></h3><span class="precio">$1.000.000</span><span class="cupo"><span lang="es">Cupos de $250.000</span><span lang="en">Shares of $250,000</span></span><a class="btn" href="https://checkout.wompi.co/l/jWItRY" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/17-c3d3fb6438.jpg" alt="Champañera de plata grabada con las iniciales P y A"><h3><span lang="es">Champañera de Plata Grabada</span><span lang="en">Engraved Silver Bucket</span></h3><span class="precio">$3.000.000</span><span class="cupo"><span lang="es">Cupos de $500.000</span><span lang="en">Shares of $500,000</span></span><a class="btn" href="https://checkout.wompi.co/l/36W7ZT" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/18-941c09e45e.jpg" alt="Poltrona Perla"><h3><span lang="es">Poltrona Perla</span><span lang="en">Perla Armchair</span></h3><span class="precio">$4.800.000</span><span class="cupo"><span lang="es">Cupos de $400.000</span><span lang="en">Shares of $400,000</span></span><a class="btn" href="https://checkout.wompi.co/l/3p3jJb" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/19-ce170c0396.jpg" alt="Set de cestas"><h3><span lang="es">Set de Cestas</span><span lang="en">Basket Set</span></h3><span class="precio">$300.000</span><a class="btn" href="https://checkout.wompi.co/l/NbHufl" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/20-378bcbd078.jpg" alt="Cesta rectangular"><h3><span lang="es">Cesta Rectangular</span><span lang="en">Rectangular Basket</span></h3><span class="precio">$250.000</span><a class="btn" href="https://checkout.wompi.co/l/AeoMZq" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/21-407ecc08e7.jpg" alt="Funda nórdica de lino"><h3><span lang="es">Funda Nórdica de Lino</span><span lang="en">Linen Duvet Cover</span></h3><span class="precio">$460.000</span><a class="btn" href="https://checkout.wompi.co/l/xAkB7X" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/22-efc4742666.jpg" alt="Florero de cerámica"><h3><span lang="es">Florero de Cerámica</span><span lang="en">Ceramic Vase</span></h3><span class="precio">$280.000</span><a class="btn" href="https://checkout.wompi.co/l/YEYbPA" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/23-80e4c587e3.jpg" alt="Mantel blanco y negro"><h3><span lang="es">Mantel B&amp;W</span><span lang="en">B&amp;W Tablecloth</span></h3><span class="precio">$260.000</span><a class="btn" href="https://checkout.wompi.co/l/gWUsj0" target="_blank" rel="noopener"><span lang="es">Regalar</span><span lang="en">Give this gift</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/24-4fe72a80f4.jpg" alt="Licuadora Ninja Crush Boss"><h3>Ninja Crush Boss</h3><span class="precio">$1.200.000</span><span class="cupo"><span lang="es">Cupos de $400.000</span><span lang="en">Shares of $400,000</span></span><a class="btn" href="https://checkout.wompi.co/l/7N9HqT" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/25-6552e3d258.jpg" alt="Tapete Firenze"><h3><span lang="es">Tapete Firenze</span><span lang="en">Firenze Rug</span></h3><span class="precio">$2.400.000</span><span class="cupo"><span lang="es">Cupos de $400.000</span><span lang="en">Shares of $400,000</span></span><a class="btn" href="https://checkout.wompi.co/l/0RZisn" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/26-c39fe9d2c0.jpg" alt="Mesa auxiliar Monolito"><h3><span lang="es">Mesa Auxiliar Monolito</span><span lang="en">Monolito Side Table</span></h3><span class="precio">$2.200.000</span><span class="cupo"><span lang="es">Cupos de $440.000</span><span lang="en">Shares of $440,000</span></span><a class="btn" href="https://checkout.wompi.co/l/s4gQqO" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/27-4b0cc42922.jpg" alt="Parlante Marshall"><h3><span lang="es">Parlante Marshall</span><span lang="en">Marshall Home Speaker</span></h3><span class="precio">$1.200.000</span><span class="cupo"><span lang="es">Cupos de $300.000</span><span lang="en">Shares of $300,000</span></span><a class="btn" href="https://checkout.wompi.co/l/nZhOBy" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/28-429c27bcc6.jpg" alt="Mesa auxiliar Lecce"><h3><span lang="es">Mesa Auxiliar Lecce</span><span lang="en">Lecce Side Table</span></h3><span class="precio">$2.240.000</span><span class="cupo"><span lang="es">Cupos de $560.000</span><span lang="en">Shares of $560,000</span></span><a class="btn" href="https://checkout.wompi.co/l/9CCZYK" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+    <div class="regalo"><img class="foto-regalo" loading="lazy" src="img/29-c7ec5ecd0a.jpg" alt="Horno de pizza Ooni"><h3><span lang="es">Horno de Pizza Ooni</span><span lang="en">Ooni Pizza Oven</span></h3><span class="precio">$2.400.000</span><span class="cupo"><span lang="es">Cupos de $600.000</span><span lang="en">Shares of $600,000</span></span><a class="btn" href="https://checkout.wompi.co/l/5qdcyR" target="_blank" rel="noopener"><span lang="es">Regalar un cupo</span><span lang="en">Give a share</span></a></div>
+  </div>
+</section>
+
+<section data-page id="galeria" class="ancha">
+  <h2><span lang="es">Galería</span><span lang="en">Gallery</span></h2>
+  <div class="galeria">
+    <img src="img/05-938d350950.jpg" alt="" loading="lazy">
+    <img src="img/30-233f5424cf.jpg" alt="" loading="lazy">
+    <img src="img/31-0dd7888384.jpg" alt="" loading="lazy">
+    <img src="img/32-9284a45282.jpg" alt="" loading="lazy">
+    <img src="img/02-1063e53f1a.jpg" alt="" loading="lazy">
+    <img src="img/33-95893a8394.jpg" alt="" loading="lazy">
+    <img src="img/34-4d589cbd00.jpg" alt="" loading="lazy">
+    <img src="img/01-7476032979.jpg" alt="" loading="lazy">
+    <img src="img/35-bb13489d66.jpg" alt="" loading="lazy">
+    <img src="img/36-d7e859ad7f.jpg" alt="" loading="lazy">
+    <img src="img/37-2ab5526104.jpg" alt="" loading="lazy">
+    <img src="img/38-d9da9e112a.jpg" alt="" loading="lazy">
+    <img src="img/39-037fed41b7.jpg" alt="" loading="lazy">
+    <img src="img/04-86930bb0b6.jpg" alt="" loading="lazy">
+    <img src="img/40-29a10c46a1.jpg" alt="" loading="lazy">
+    <img src="img/41-d02c029dd0.jpg" alt="" loading="lazy">
+    <img src="img/42-c185820ec1.jpg" alt="" loading="lazy">
+    <img src="img/43-60341ddd19.jpg" alt="" loading="lazy">
+    <img src="img/03-9b47589a7d.jpg" alt="" loading="lazy">
+    <img src="img/44-f333866d5e.jpg" alt="" loading="lazy">
+    <img src="img/45-059b0b95c4.jpg" alt="" loading="lazy">
+    <img src="img/46-78952f26da.jpg" alt="" loading="lazy">
+    <img src="img/47-48be75db1c.jpg" alt="" loading="lazy">
+    <img src="img/48-eb71e1f5fe.jpg" alt="" loading="lazy">
+  </div>
+</section>
+
+<section data-page id="que-hacer" class="ancha">
+  <h2><span lang="es">Qué hacer</span><span lang="en">Things to do</span></h2>
+  <p lang="es">Si te quedas unos días más y quieres explorar la región, estos son algunos de nuestros lugares, restaurantes, bares y cafés favoritos.</p>
+  <p lang="en">If you're staying a few extra days and want to explore the region, here are some of our favorite places, restaurants, bars and cafés.</p>
+  <div class="lugares">
+    <div class="lugar-bloque"><h3>El Retiro</h3><p lang="es">Pueblo tranquilo, con buenos restaurantes y cafés.</p><p lang="en">A quiet town with great restaurants and cafés.</p><p lang="es">¡La pizza de <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Barro+El+Retiro+Antioquia" target="_blank" rel="noopener">Barro</a> es un must!</p><p lang="en">The pizza at <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Barro+El+Retiro+Antioquia" target="_blank" rel="noopener">Barro</a> is a must!</p></div>
+    <div class="lugar-bloque"><h3>El Carmen de Viboral</h3><p lang="es">Famoso por su cerámica pintada a mano.</p><p lang="en">Known for its hand-painted ceramics.</p></div>
+    <div class="lugar-bloque"><h3>Medellín</h3><p lang="es">A menos de una hora, para quienes quieran ciudad.</p><p lang="en">Under an hour away, if you'd like some city time.</p><span class="dc"><span lang="es">Restaurantes</span><span lang="en">Restaurants</span></span><ul class="lista-lugares"><li class="destacado"><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Postre+restaurante+Medell%C3%ADn" target="_blank" rel="noopener">Postre</a> <span class="nota-lugar"><span lang="es">· Las mejores hamburguesas de Medellín</span><span lang="en">· The best burgers in Medellín</span></span></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Oci+Medell%C3%ADn" target="_blank" rel="noopener">Oci</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Bao+Bei+Medell%C3%ADn" target="_blank" rel="noopener">Bao Bei</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Carmen+Medell%C3%ADn" target="_blank" rel="noopener">Carmen</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Cuon+Medell%C3%ADn" target="_blank" rel="noopener">Cuon</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Marzzano+Medell%C3%ADn" target="_blank" rel="noopener">Marzzano</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Il+Castello+Medell%C3%ADn" target="_blank" rel="noopener">Il Castello</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Pergamino+Medell%C3%ADn" target="_blank" rel="noopener">Pergamino</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+Dragon+Medell%C3%ADn" target="_blank" rel="noopener">Cafe Dragon</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Sambombi+Medell%C3%ADn" target="_blank" rel="noopener">Sambombi</a></li></ul><span class="dc"><span lang="es">Actividades</span><span lang="en">Activities</span></span><ul class="lista-lugares"><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Museo+de+Antioquia+Medell%C3%ADn" target="_blank" rel="noopener"><span lang="es">Museo de Antioquia</span><span lang="en">Museum of Antioquia</span></a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=El+Social+Medell%C3%ADn" target="_blank" rel="noopener">El Social</a></li><li><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Graffiti+tour+Comuna+13+Medell%C3%ADn" target="_blank" rel="noopener">Graffiti tour</a></li></ul></div>
+    <div class="lugar-bloque"><h3>Guatapé</h3><p lang="es">El pueblo de zócalos de colores y la Piedra del Peñol.</p><p lang="en">The colorful town and the famous Peñol Rock.</p></div>
+  </div>
+</section>
+
+<section data-page id="graciaslosamamos">
+  <h2><span lang="es">¡Gracias!</span><span lang="en">Thank you!</span></h2>
+  <p lang="es">Recibimos tu regalo con muchísimo amor y emoción. Gracias por ser parte de este momento tan especial para nosotros.</p>
+  <p lang="es">¡Te queremos mucho!</p>
+  <p lang="en">We received your gift with so much love and excitement. Thank you for being part of this special moment for us.</p>
+  <p lang="en">We love you!</p>
+  <p style="margin-top:2rem"><a class="btn sec" href="#inicio"><span lang="es">Volver al inicio</span><span lang="en">Back to home</span></a></p>
+</section>
+
+<section data-page id="rsvp">
+  <h2>RSVP</h2>
+  <form id="form-rsvp" novalidate>
+    <label><span><span lang="es">Nombre completo</span><span lang="en">Full name</span></span><input name="nombre" autocomplete="name" required></label>
+    <fieldset>
+      <legend><span lang="es">¿Nos acompañas?</span><span lang="en">Will you join us?</span></legend>
+      <div class="opciones">
+        <label><input type="radio" name="asiste" value="si"> <span lang="es">Sí, ahí estaré</span><span lang="en">Joyfully accepts</span></label>
+        <label><input type="radio" name="asiste" value="no"> <span lang="es">No podré ir</span><span lang="en">Regretfully declines</span></label>
+      </div>
+    </fieldset>
+    <label><span><span lang="es">Número de personas (contándote)</span><span lang="en">Number of guests (including you)</span></span>
+      <select name="personas"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+    <div id="acompanantes" style="display:grid;gap:1.1rem"></div>
+    <label><span><span lang="es">Restricciones alimentarias</span><span lang="en">Dietary restrictions</span></span><input name="dieta"></label>
+    <label><span><span lang="es">Un mensaje para nosotros (opcional)</span><span lang="en">A note for us (optional)</span></span><textarea name="mensaje"></textarea></label>
+    <input class="trampa" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="error" id="rsvp-error" role="alert"></p>
+    <button class="btn" type="submit"><span lang="es">Enviar confirmación</span><span lang="en">Send RSVP</span></button>
+  </form>
+</section>
+
+<dialog id="dlg-regalo" aria-labelledby="dlg-titulo">
+  <form id="form-regalo" novalidate>
+    <h3 id="dlg-titulo"></h3>
+    <p class="dlg-valor" id="dlg-valor"></p>
+    <p class="dlg-intro"><span lang="es">Antes de ir al pago, déjanos tu nombre para poder agradecerte.</span><span lang="en">Before you pay, leave us your name so we can thank you.</span></p>
+    <label><span><span lang="es">Tu nombre</span><span lang="en">Your name</span></span><input name="nombre" autocomplete="name" required></label>
+    <label><span><span lang="es">Un mensaje para nosotros (opcional)</span><span lang="en">A note for us (optional)</span></span><textarea name="mensaje"></textarea></label>
+    <input class="trampa" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="error" id="regalo-error" role="alert"></p>
+    <button class="btn" type="submit"><span lang="es">Continuar al pago</span><span lang="en">Continue to payment</span></button>
+    <button class="cerrar" type="button" id="dlg-cerrar"><span lang="es">Cancelar</span><span lang="en">Cancel</span></button>
+  </form>
+</dialog>
+</main>
+<footer>
+  <span class="mono">How lucky are we</span>
+  06.06.2027
+</footer>
+
+<script>
+// Idioma
+(function(){
+  var html=document.documentElement, b=document.getElementById("idioma");
+  function set(l){ html.setAttribute("data-lang",l); html.lang=l; b.textContent = l==="es" ? "EN" : "ES"; try{localStorage.setItem("idioma",l)}catch(e){} }
+  var guardado=null; try{guardado=localStorage.getItem("idioma")}catch(e){}
+  set(guardado || ((navigator.language||"es").slice(0,2)==="en" ? "en" : "es"));
+  b.addEventListener("click",function(){ set(html.getAttribute("data-lang")==="es"?"en":"es") });
+})();
+
+// Carrusel continuo: las fotos se desplazan despacio y sin parar
+(function(){
+  var pista=document.getElementById("pista"), orig=[].slice.call(pista.children);
+  orig.forEach(function(img){ var c=img.cloneNode(); c.alt=""; c.setAttribute("aria-hidden","true"); pista.appendChild(c); });
+  function velocidad(){ var mitad=pista.scrollWidth/2; if(mitad>0) pista.style.setProperty("--dur",(mitad/35)+"s"); }
+  window.addEventListener("load",velocidad); window.addEventListener("resize",velocidad);
+  window.recalcCarrusel=velocidad;
+})();
+
+// Navegación: cada sección es su propia pantalla
+(function(){
+  var paginas=[].slice.call(document.querySelectorAll("[data-page]")), links=[].slice.call(document.querySelectorAll("nav a"));
+  function mostrar(){
+    var id=(location.hash||"#inicio").slice(1);
+    if(!document.getElementById(id) || !document.getElementById(id).hasAttribute("data-page")) id="inicio";
+    paginas.forEach(function(p){ p.classList.toggle("activa", p.id===id) });
+    links.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href")==="#"+id) });
+    window.scrollTo({top:0,behavior:"instant"});
+    if(id==="inicio" && window.recalcCarrusel) window.recalcCarrusel();
+  }
+  window.addEventListener("hashchange",mostrar);
+  mostrar();
+})();
+
+// RSVP: campos de acompañantes según el número de personas
+(function(){
+  var sel=document.querySelector('select[name="personas"]'), caja=document.getElementById("acompanantes");
+  function pintar(){
+    var n=parseInt(sel.value,10)-1, prev=[].map.call(caja.querySelectorAll("input"),function(i){return i.value});
+    caja.innerHTML="";
+    for(var k=0;k<n;k++){
+      var es = n===1 ? "Nombre de tu acompañante" : "Nombre del acompañante "+(k+1);
+      var en = n===1 ? "Your guest's name" : "Guest "+(k+1)+" name";
+      var l=document.createElement("label");
+      l.innerHTML='<span><span lang="es">'+es+'</span><span lang="en">'+en+'</span></span><input name="acomp" autocomplete="off">';
+      l.querySelector("input").value=prev[k]||"";
+      caja.appendChild(l);
+    }
+  }
+  sel.addEventListener("change",pintar); pintar();
+})();
+
+// Envío de datos a la hoja de Google (RSVP y regalos)
+var HOJA_URL = "https://script.google.com/macros/s/AKfycbwCaYj9Ru-zSEgWbLgyd4DspMh3axVIpmaKVbhHbm0tY7ceTlbq1GYlDf8fwWiW2x-D/exec";
+function enviarHoja(datos){
+  return fetch(HOJA_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(datos)});
+}
+function enIngles(){ return document.documentElement.getAttribute("data-lang")==="en"; }
+
+// RSVP
+document.getElementById("form-rsvp").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=e.target, err=document.getElementById("rsvp-error"), en=enIngles();
+  var nombre=f.nombre.value.trim(), a=f.querySelector('input[name="asiste"]:checked');
+  if(!nombre){ err.textContent = en ? "Enter your name to RSVP." : "Escribe tu nombre para confirmar."; f.nombre.focus(); return; }
+  if(!a){ err.textContent = en ? "Choose whether you'll join us." : "Elige si nos acompañas o no."; return; }
+  var acomp=[].map.call(f.querySelectorAll('input[name="acomp"]'),function(i){return i.value.trim()});
+  if(a.value==="si" && acomp.some(function(v){return !v})){ err.textContent = en ? "Please enter your guests' names." : "Escribe el nombre de tus acompañantes."; f.querySelector('input[name="acomp"]').focus(); return; }
+  err.textContent="";
+  var btn=f.querySelector('button[type="submit"]'); btn.disabled=true; btn.style.opacity=".6";
+  enviarHoja({tipo:"rsvp",web:f.web.value,nombre:nombre,asiste:a.value,personas:f.personas.value,
+    acompanantes:acomp.filter(Boolean).join(", "),restricciones:f.dieta.value,mensaje:f.mensaje.value})
+  .then(function(){
+    var p=document.createElement("p"); p.className="gracias";
+    p.textContent = en ? ("Thank you, "+nombre+"! We received your RSVP.") : ("¡Gracias, "+nombre+"! Recibimos tu confirmación.");
+    f.replaceWith(p);
+  })
+  .catch(function(){
+    btn.disabled=false; btn.style.opacity="";
+    err.textContent = en ? "We couldn't send your RSVP. Please check your connection and try again." : "No pudimos enviar tu confirmación. Revisa tu conexión e inténtalo de nuevo.";
+  });
+});
+
+// Regalos: pedir nombre y mensaje antes de ir al pago
+(function(){
+  var dlg=document.getElementById("dlg-regalo"), f=document.getElementById("form-regalo"), err=document.getElementById("regalo-error"), actual=null;
+  function numero(s){ var d=(s||"").replace(/[^0-9]/g,""); return d?parseInt(d,10):""; }
+  document.querySelectorAll(".regalo .btn").forEach(function(b){
+    b.addEventListener("click",function(ev){
+      ev.preventDefault();
+      var card=b.closest(".regalo"), h=card.querySelector("h3"), es=h.querySelector('[lang="es"]');
+      var cupo=card.querySelector('.cupo [lang="es"]'), precio=card.querySelector(".precio");
+      var precioEs=precio.querySelector('[lang="es"]')||precio;
+      actual={nombre:(es||h).textContent.trim(), link:b.getAttribute("href"), valor:numero(cupo?cupo.textContent:precioEs.textContent)};
+      document.getElementById("dlg-titulo").innerHTML=h.innerHTML;
+      document.getElementById("dlg-valor").textContent=(cupo?cupo.textContent:precioEs.textContent);
+      err.textContent=""; f.reset();
+      if(dlg.showModal) dlg.showModal(); else dlg.setAttribute("open","");
+    });
+  });
+  document.getElementById("dlg-cerrar").addEventListener("click",function(){ dlg.close(); });
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var en=enIngles(), nombre=f.nombre.value.trim();
+    if(!nombre){ err.textContent = en ? "Please enter your name." : "Escribe tu nombre."; f.nombre.focus(); return; }
+    enviarHoja({tipo:"regalo",web:f.web.value,nombre:nombre,regalo:actual.nombre,valor:actual.valor,mensaje:f.mensaje.value}).catch(function(){});
+    if(actual.link && actual.link!=="#"){
+      window.open(actual.link,"_blank","noopener");
+      dlg.close();
+    } else {
+      err.textContent = en ? "Thank you! The payment link will be available soon." : "¡Gracias! El link de pago estará disponible muy pronto.";
+    }
+  });
+})();
+</script>
+</body>
+</html>
