@@ -52,7 +52,7 @@ nav a:hover,nav a.on{border-bottom-color:var(--tinta)}
 
 /* nombres */
 .nombres{text-align:center;padding:clamp(3.5rem,9vw,6rem) 1.25rem 2rem;max-width:980px;margin:0 auto}
-.nombres h1{font-family:var(--script);color:var(--acento);font-weight:400;font-style:normal;font-size:clamp(2.6rem,7.5vw,4.4rem);line-height:1.25;margin:0}
+.nombres h1{font-family:var(--script);color:var(--acento);font-weight:400;font-style:normal;font-size:clamp(1.6rem,8.6vw,4.4rem);line-height:1.25;margin:0}
 .nombres .amp{display:block;font-family:var(--serif);font-size:2rem;line-height:1;margin:.6rem 0}
 @media (min-width:700px){.nombres .amp{transform:translateX(-7%)}}
 .datos{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:clamp(3rem,8vw,5rem)}
@@ -75,7 +75,7 @@ p{margin:0 auto 1rem;max-width:58ch}
 .programa li{padding:1.1rem 0;border-bottom:1px solid var(--linea)}
 .programa li:last-child{border-bottom:0}
 .dc{display:block;font-family:var(--script);color:var(--acento);font-style:normal;font-weight:400;font-size:1.55rem;line-height:1.3;margin-top:.6rem}
-.fecha-dia{display:block;font-size:1.65rem;font-weight:600;color:var(--tinta);margin-bottom:.3rem}
+.fecha-dia{display:block;font-size:1.65rem;font-weight:600;color:var(--tinta);margin-bottom:1.1rem}
 .dia-bloque p{font-size:1.4rem}
 .dia-bloque .programa .e{font-size:1.5rem}
 .dia-bloque .programa .h{font-size:1.45rem}
@@ -109,8 +109,9 @@ p{margin:0 auto 1rem;max-width:58ch}
 .regalo .btn{margin-top:auto}
 
 /* galería */
-.galeria{columns:3 260px;column-gap:12px;margin-top:1.5rem}
-.galeria img{width:100%;height:auto;margin:0 0 12px;break-inside:avoid}
+.galeria{display:flex;gap:12px;align-items:flex-start;margin-top:1.5rem}
+.galeria .col{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px}
+.galeria img{width:100%;height:auto;display:block;margin:0;object-fit:cover}
 
 /* rsvp */
 form{display:grid;gap:1.1rem;text-align:left;max-width:460px;margin:2rem auto 0}
@@ -142,8 +143,8 @@ footer{text-align:center;padding:2rem 1rem 4rem;color:var(--suave)}
 footer .mono{font-family:var(--script);color:var(--acento);font-style:normal;font-size:2.4rem;display:block;line-height:1.3}
 @media (max-width:560px){.datos{grid-template-columns:1fr;gap:1.5rem}}
 @media (max-width:600px){
-  .galeria{columns:2;column-gap:8px}
-  .galeria img{margin-bottom:8px}
+  .galeria,.galeria .col{gap:8px}
+  
   .regalos{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
   .regalo{padding:.6rem .6rem 1rem;gap:.2rem}
   .regalo h3{font-size:1.35rem;line-height:1.2}
@@ -160,6 +161,7 @@ dialog#dlg-regalo h3{text-align:center;margin:0}
 .dlg-intro{text-align:center;margin:.4rem 0 .2rem}
 .cerrar{font:inherit;background:none;border:0;color:var(--suave);cursor:pointer;justify-self:center;text-decoration:underline;text-underline-offset:3px}
 .gracias{text-align:center;font-size:1.3rem;padding:1rem 0}
+@media (max-width:600px){.pista img{height:clamp(240px,38vh,320px)}}
 </style>
 </head>
 <body>
@@ -297,30 +299,30 @@ dialog#dlg-regalo h3{text-align:center;margin:0}
 <section data-page id="galeria" class="ancha">
   <h2><span lang="es">Galería</span><span lang="en">Gallery</span></h2>
   <div class="galeria">
-    <img src="img/05-938d350950.jpg" alt="" loading="lazy">
-    <img src="img/30-233f5424cf.jpg" alt="" loading="lazy">
-    <img src="img/31-0dd7888384.jpg" alt="" loading="lazy">
-    <img src="img/32-9284a45282.jpg" alt="" loading="lazy">
-    <img src="img/02-1063e53f1a.jpg" alt="" loading="lazy">
-    <img src="img/33-95893a8394.jpg" alt="" loading="lazy">
-    <img src="img/34-4d589cbd00.jpg" alt="" loading="lazy">
-    <img src="img/01-7476032979.jpg" alt="" loading="lazy">
-    <img src="img/35-bb13489d66.jpg" alt="" loading="lazy">
-    <img src="img/36-d7e859ad7f.jpg" alt="" loading="lazy">
-    <img src="img/37-2ab5526104.jpg" alt="" loading="lazy">
-    <img src="img/38-d9da9e112a.jpg" alt="" loading="lazy">
-    <img src="img/39-037fed41b7.jpg" alt="" loading="lazy">
-    <img src="img/04-86930bb0b6.jpg" alt="" loading="lazy">
-    <img src="img/40-29a10c46a1.jpg" alt="" loading="lazy">
-    <img src="img/41-d02c029dd0.jpg" alt="" loading="lazy">
-    <img src="img/42-c185820ec1.jpg" alt="" loading="lazy">
-    <img src="img/43-60341ddd19.jpg" alt="" loading="lazy">
-    <img src="img/03-9b47589a7d.jpg" alt="" loading="lazy">
-    <img src="img/44-f333866d5e.jpg" alt="" loading="lazy">
-    <img src="img/45-059b0b95c4.jpg" alt="" loading="lazy">
-    <img src="img/46-78952f26da.jpg" alt="" loading="lazy">
-    <img src="img/47-48be75db1c.jpg" alt="" loading="lazy">
-    <img src="img/48-eb71e1f5fe.jpg" alt="" loading="lazy">
+    <img src="img/05-938d350950.jpg" alt="" loading="lazy" data-r="1600/980" style="aspect-ratio:1600/980">
+    <img src="img/30-233f5424cf.jpg" alt="" loading="lazy" data-r="720/1280" style="aspect-ratio:720/1280">
+    <img src="img/31-0dd7888384.jpg" alt="" loading="lazy" data-r="1600/1200" style="aspect-ratio:1600/1200">
+    <img src="img/32-9284a45282.jpg" alt="" loading="lazy" data-r="1280/848" style="aspect-ratio:1280/848">
+    <img src="img/02-1063e53f1a.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/33-95893a8394.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/34-4d589cbd00.jpg" alt="" loading="lazy" data-r="853/1280" style="aspect-ratio:853/1280">
+    <img src="img/01-7476032979.jpg" alt="" loading="lazy" data-r="1280/770" style="aspect-ratio:1280/770">
+    <img src="img/35-bb13489d66.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/36-d7e859ad7f.jpg" alt="" loading="lazy" data-r="840/1280" style="aspect-ratio:840/1280">
+    <img src="img/37-2ab5526104.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/38-d9da9e112a.jpg" alt="" loading="lazy" data-r="960/1280" style="aspect-ratio:960/1280">
+    <img src="img/39-037fed41b7.jpg" alt="" loading="lazy" data-r="1066/1600" style="aspect-ratio:1066/1600">
+    <img src="img/04-86930bb0b6.jpg" alt="" loading="lazy" data-r="1600/1066" style="aspect-ratio:1600/1066">
+    <img src="img/40-29a10c46a1.jpg" alt="" loading="lazy" data-r="960/1280" style="aspect-ratio:960/1280">
+    <img src="img/41-d02c029dd0.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/42-c185820ec1.jpg" alt="" loading="lazy" data-r="853/1280" style="aspect-ratio:853/1280">
+    <img src="img/43-60341ddd19.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/03-9b47589a7d.jpg" alt="" loading="lazy" data-r="1600/1199" style="aspect-ratio:1600/1199">
+    <img src="img/44-f333866d5e.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/45-059b0b95c4.jpg" alt="" loading="lazy" data-r="946/1280" style="aspect-ratio:946/1280">
+    <img src="img/46-78952f26da.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
+    <img src="img/47-48be75db1c.jpg" alt="" loading="lazy" data-r="903/1280" style="aspect-ratio:903/1280">
+    <img src="img/48-eb71e1f5fe.jpg" alt="" loading="lazy" data-r="1200/1600" style="aspect-ratio:1200/1600">
   </div>
 </section>
 
@@ -392,7 +394,7 @@ dialog#dlg-regalo h3{text-align:center;margin:0}
   var html=document.documentElement, b=document.getElementById("idioma");
   function set(l){ html.setAttribute("data-lang",l); html.lang=l; b.textContent = l==="es" ? "EN" : "ES"; try{localStorage.setItem("idioma",l)}catch(e){} }
   var guardado=null; try{guardado=localStorage.getItem("idioma")}catch(e){}
-  set(guardado || ((navigator.language||"es").slice(0,2)==="en" ? "en" : "es"));
+  set(guardado || "es");
   b.addEventListener("click",function(){ set(html.getAttribute("data-lang")==="es"?"en":"es") });
 })();
 
@@ -405,6 +407,31 @@ dialog#dlg-regalo h3{text-align:center;margin:0}
   window.recalcCarrusel=velocidad;
 })();
 
+// Galería en mosaico: reparte las fotos en columnas parejas y empareja el final
+(function(){
+  var g=document.querySelector(".galeria"); if(!g) return;
+  var imgs=[].slice.call(g.querySelectorAll("img"));
+  function armar(){
+    if(!g.offsetParent) return;
+    var n=window.innerWidth<=600?2:3, cols=[];
+    for(var c=0;c<n;c++) cols.push({items:[],h:0});
+    imgs.map(function(el,k){var r=(el.getAttribute("data-r")||"1").split("/");return {el:el,k:k,h:r[1]/r[0]};})
+      .sort(function(a,b){return b.h-a.h;})
+      .forEach(function(it){var m=cols.reduce(function(a,b){return a.h<=b.h?a:b;});m.items.push(it);m.h+=it.h;});
+    g.innerHTML="";
+    cols.forEach(function(c){
+      c.items.sort(function(a,b){return a.k-b.k;});
+      var d=document.createElement("div"); d.className="col";
+      c.items.forEach(function(it){it.el.style.height="";d.appendChild(it.el);});
+      g.appendChild(d);
+    });
+    var cs=[].slice.call(g.children), max=Math.max.apply(null,cs.map(function(c){return c.offsetHeight;}));
+    cs.forEach(function(c){var dif=max-c.offsetHeight;if(dif>1){var l=c.lastElementChild;l.style.height=(l.offsetHeight+dif)+"px";}});
+  }
+  window.armarGaleria=armar;
+  var t; window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(armar,150);});
+})();
+
 // Navegación: cada sección es su propia pantalla
 (function(){
   var paginas=[].slice.call(document.querySelectorAll("[data-page]")), links=[].slice.call(document.querySelectorAll("nav a"));
@@ -415,6 +442,7 @@ dialog#dlg-regalo h3{text-align:center;margin:0}
     links.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href")==="#"+id) });
     window.scrollTo({top:0,behavior:"instant"});
     if(id==="inicio" && window.recalcCarrusel) window.recalcCarrusel();
+    if(id==="galeria" && window.armarGaleria) window.armarGaleria();
   }
   window.addEventListener("hashchange",mostrar);
   mostrar();
